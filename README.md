@@ -6,14 +6,14 @@ ___
 	- [Table of contents :](#table-of-contents-)
 	- [About :](#about-)
 	- [VM Settings :](#vm-settings-)
-		- [How to connect to guest machine with SSH](#how-to-connect-to-guest-machine-with-ssh)
-			- [First Method : Port Forwarding (NAT mode)](#first-method--port-forwarding-nat-mode)
-			- [Second Method : Swap NAT to Bridged Adapter](#second-method--swap-nat-to-bridged-adapter)
 	- [Installation and Partitioning :](#installation-and-partitioning-)
 	- [UFW :](#ufw-)
 	- [SUDO :](#sudo-)
 	- [PASSWORD POLICY :](#password-policy-)
 	- [MONITORING SCRIPT :](#monitoring-script-)
+		- [How to connect to guest machine with SSH](#how-to-connect-to-guest-machine-with-ssh)
+			- [First Method : Port Forwarding (NAT mode)](#first-method--port-forwarding-nat-mode)
+			- [Second Method : Swap NAT to Bridged Adapter](#second-method--swap-nat-to-bridged-adapter)
 
 
 
@@ -38,28 +38,6 @@ VDI
 Dynamically allocated
 8 Gb
 Debian-10-x-x-amd64-netinst.iso
-```
-
-### How to connect to guest machine with SSH
-
-#### First Method : Port Forwarding (NAT mode)
-```
-Network settings, Advanced, Port Forwarding, Add rule to forward 4242 port from guest machine to host machine.
-```
-```
-Connect from terminal (SSH -p4242 login@10.0.2.15)
-```
-
-#### Second Method : Swap NAT to Bridged Adapter
-
-```
-Swap NAT to Bridged Adapter in Network settings
-```
-```
-Get ip addr with "hostname -I"
-```
-```
-Connect from terminal (SSH -p4242 login@ip_addr)
 ```
 
 ## Installation and Partitioning :
@@ -178,3 +156,24 @@ To write in the crontab file, schedule the script for every 10 minutes
 */10 * * * * /home/my_path/monitoring.sh
 ```
 
+### How to connect to guest machine with SSH
+
+#### First Method : Port Forwarding (NAT mode)
+```
+Network settings, Advanced, Port Forwarding, Add rule to forward 4242 port from guest machine to host machine.
+```
+```
+Connect from terminal (SSH -p4242 login@10.0.2.15)
+```
+
+#### Second Method : Swap NAT to Bridged Adapter
+
+```
+Swap NAT to Bridged Adapter in Network settings
+```
+```
+Get ip addr with "hostname -I"
+```
+```
+Connect from terminal (SSH -p4242 login@ip_addr)
+```
